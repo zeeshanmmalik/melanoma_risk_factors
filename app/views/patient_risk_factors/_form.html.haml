@@ -1,0 +1,135 @@
+#stylized
+  .myform
+    = form_for @patient_risk_factor do |f|
+      -if @patient_risk_factor.errors.any?
+        #error_explanation.flash.alert
+          %h2= "#{pluralize(@patient_risk_factor.errors.count, "Error")}:"
+          %ul
+            - @patient_risk_factor.errors.full_messages.each do |msg|
+              %li= msg
+      %h3= "Your MRN: #{@patient_risk_factor.mrn}"
+      = f.hidden_field :mrn   
+      %fieldset
+        %legend
+        .field
+          .field-item
+            = label_tag "Gender"
+            - ['Male','Female'].each do |option|
+              = f.radio_button :gender, option
+              = f.label :gender, option, :value => option, :class => 'radio'                              
+          .field-item
+            = f.label :year_of_birth
+            = f.select :year_of_birth, (1930..Time.now.year).to_a, { :prompt => "Select year" }
+        .field
+          %p Ethnicity
+          - Ethnicity.all.each do |e|
+            .field-item
+              = label_tag nil, nil, :class => 'checkbox' do
+                = check_box_tag "patient_risk_factor[ethnicity_ids][]", e.id, @patient_risk_factor.ethnicities.include?(e)
+                = e.title
+      %fieldset
+        %legend Genetic Disposition
+        .field
+          %p Eye Color?
+          - [ ['0','Light blue, gray, green'], ['1','Blue, gray, green'], ['2','Blue'], ['3','Dark Brown'], ['4','Brownish black'] ].each do |option|
+            .field-item
+              = f.radio_button :eye_color, option[0]
+              = f.label :eye_color, option[1], :value => option[0], :class => 'radio'
+        .field
+          %p Hair Color?
+          - [ ['0','Sandy, red'], ['1','Blonde'], ['2','Chestnut, dark blonde'], ['3','Dark Brown'], ['4','Black'] ].each do |option|
+            .field-item
+              = f.radio_button :hair_color, option[0]
+              = f.label :hair_color, option[1], :value => option[0], :class => 'radio'
+        .field
+          %p Color of non-exposed skin?
+          - [ ['0','Reddish'], ['1','Pale'], ['2','Beige or olive'], ['3','Brown'], ['4','Dark brown'] ].each do |option|
+            .field-item
+              = f.radio_button :skin_color, option[0]
+              = f.label :skin_color, option[1], :value => option[0], :class => 'radio'          
+        .field
+          %p Do you have freckles?
+          - [ ['0','Many'], ['1','Several'], ['2','Few'], ['3','Rare'], ['4','None'] ].each do |option|
+            .field-item
+              = f.radio_button :freckle_count, option[0]
+              = f.label :freckle_count, option[1], :value => option[0], :class => 'radio'
+      %fieldset
+        %legend Reaction to Sun Exposure
+        .field
+          %p What happens when you stay in the sun for too long?
+          - [ ['0','Painful redness, blistering, peeling'], ['1','Mild blisters, followed by peeling'], ['2','Burns sometimes followed by peeling'], ['3','Rarely burn'], ['4','Never burns'] ].each do |option|
+            .field-item
+              = f.radio_button :long_sun_exposure_effect, option[0]
+              = f.label :long_sun_exposure_effect, option[1], :value => option[0], :class => 'radio'
+        .field
+          %p To what degree do you turn brown?
+          - [ ['0','Hardly, not at all'], ['1','Light'], ['2','Moderate'], ['3','Tans easily'], ['4','Readily Tans'] ].each do |option|
+            .field-item
+              = f.radio_button :color_sun_exposure_effect, option[0]
+              = f.label :color_sun_exposure_effect, option[1], :value => option[0], :class => 'radio'          
+        .field
+          %p Do you tan within several hours after sun exposure?
+          - [ ['0','Never'], ['1','Seldom'], ['2','Sometimes'], ['3','Often'], ['4','Always'] ].each do |option|
+            .field-item
+              = f.radio_button :tan_sun_exposure_effect, option[0]
+              = f.label :tan_sun_exposure_effect, option[1], :value => option[0], :class => 'radio'          
+        .field
+          %p Is your face sensitive to the sun?
+          - [ ['0','Very sensitive'], ['1','Sensitive'], ['2','Sometimes'], ['3','Resistant'], ['4','Never had a problem'] ].each do |option|
+            .field-item
+              = f.radio_button :sensitivity_sun_exposure_effect, option[0]
+              = f.label :sensitivity_sun_exposure_effect, option[1], :value => option[0], :class => 'radio'          
+      %fieldset
+        %legend Personal History
+        .field
+          %p Do you have a first degree relative (sibling, parent or child) with melanoma?
+          - [ ['0', 'Yes'], ['1', 'No'], ['2', 'Don\'t know'] ].each do |option|
+            .field-item
+              = f.radio_button :first_degree_relative, option[0]
+              = f.label :first_degree_relative, option[1], :value => option[0], :class => 'radio'          
+        .field
+          %p Have you ever been diagnosed with melanoma?
+          - [ [true, 'Yes'], [false, 'No'] ].each do |option|
+            .field-item
+              = f.radio_button :melanoma_diagnosis_history, option[0]
+              = f.label :melanoma_diagnosis_history, option[1], :value => option[0], :class => 'radio'                    
+        .field
+          %p Have you ever held a residence in a tropical or subtropical climate?
+          - [ [true, 'Yes'], [false, 'No'] ].each do |option|
+            .field-item
+              = f.radio_button :tropical_residence, option[0]
+              = f.label :tropical_residence, option[1], :value => option[0], :class => 'radio'                              
+          .field-item
+            %p i) If yes, how long was your stay? 
+            = f.label :tropical_residence_period, "Period in weeks"
+            = f.text_field :tropical_residence_period
+          .field-item
+            %p ii) Age range while you were there?
+            = f.label :tropical_residence_age_range, "Age Range"
+            = f.text_field :tropical_residence_age_range
+        .field
+          %p How many episodes of sever sunburn have you experienced in your life? 
+          - [ ['0','0'], ['1','1'], ['2','2'], ['3','3+'] ].each do |option|
+            .field-item
+              = f.radio_button :sun_burn_episodes, option[0]
+              = f.label :sun_burn_episodes, option[1], :value => option[0], :class => 'radio'          
+        .field
+          %p How often do you frequent tanning salons or make use of sun lamps?
+          - [ ['0','Never'], ['1','Seldom'], ['2','Sometimes'], ['3','Often'], ['4','Very often'] ].each do |option|
+            .field-item
+              = f.radio_button :tanning_saloon_frequency, option[0]
+              = f.label :tanning_saloon_frequency, option[1], :value => option[0], :class => 'radio'          
+        .field
+          %p Do you have a regular dermatologist?
+          - [ [true, 'Yes'], [false, 'No'] ].each do |option|
+            .field-item
+              = f.radio_button :regular_dermatologist, option[0]
+              = f.label :regular_dermatologist, option[1], :value => option[0], :class => 'radio'                              
+        .field
+          %p h)	I am currently immunosuppressed (eg. Untreated HIV infection, AIDS, organ transplant patient etc.)
+          - [ [true, 'Yes'], [false, 'No'] ].each do |option|
+            .field-item
+              = f.radio_button :immunosuppressed, option[0]
+              = f.label :immunosuppressed, option[1], :value => option[0], :class => 'radio'                              
+        .actions
+          = f.submit 'Save', :class => "saveform"

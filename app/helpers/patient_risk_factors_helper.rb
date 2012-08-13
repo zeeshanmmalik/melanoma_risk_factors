@@ -1,0 +1,2 @@
+module PatientRiskFactorsHelper
+end

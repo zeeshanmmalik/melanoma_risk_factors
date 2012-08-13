@@ -1,0 +1,25 @@
+#title
+  %h1 Enter Medical Record Number (MRN)
+#wrapper.wat-cf
+  - if flash[:alert]
+    .flash.alert
+      = flash.alert
+  - if flash[:notice]
+    .flash.notice
+      = flash.notice
+  = javascript_tag "$('.flash').delay(10000).fadeOut(300);"
+  #stylized
+    .myform
+      = form_for :patient_risk_factor, :url => load_or_create_new_patient_risk_factor_path do |f|      
+        %fieldset
+          %legend Medical Record Number
+          .field
+            .field-item
+              = f.label :mrn, 'Enter MRN', :class => 'text'
+              = f.password_field :mrn
+            .field-item
+              = f.label :re_mrn, 'Re-enter MRN', :class => 'text'
+              = f.password_field :re_mrn
+          .actions
+            = f.submit "Submit", :class => "saveform"
+

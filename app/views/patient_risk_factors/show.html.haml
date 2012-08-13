@@ -1,0 +1,66 @@
+%p#notice= notice
+
+%p
+  %b Mrn:
+  = @patient_risk_factor.mrn
+%p
+  %b Gender:
+  = @patient_risk_factor.gender
+%p
+  %b Year of birth:
+  = @patient_risk_factor.year_of_birth
+%p
+  %b Eye color:
+  = @patient_risk_factor.eye_color
+%p
+  %b Hair color:
+  = @patient_risk_factor.hair_color
+%p
+  %b Skin color:
+  = @patient_risk_factor.skin_color
+%p
+  %b Freckle count:
+  = @patient_risk_factor.freckle_count
+%p
+  %b Long sun exposure effect:
+  = @patient_risk_factor.long_sun_exposure_effect
+%p
+  %b Color sun exposure effect:
+  = @patient_risk_factor.color_sun_exposure_effect
+%p
+  %b Tan sun exposure effect:
+  = @patient_risk_factor.tan_sun_exposure_effect
+%p
+  %b Sensitivity sun exposure effect:
+  = @patient_risk_factor.sensitivity_sun_exposure_effect
+%p
+  %b First degree relative:
+  = @patient_risk_factor.first_degree_relative
+%p
+  %b Melanoma diagnosis history:
+  = @patient_risk_factor.melanoma_diagnosis_history
+%p
+  %b Tropical residence:
+  = @patient_risk_factor.tropical_residence
+%p
+  %b Tropical residence period:
+  = @patient_risk_factor.tropical_residence_period
+%p
+  %b Tropical residence age range:
+  = @patient_risk_factor.tropical_residence_age_range
+%p
+  %b Sun burn episodes:
+  = @patient_risk_factor.sun_burn_episodes
+%p
+  %b Tanning saloon frequency:
+  = @patient_risk_factor.tanning_saloon_frequency
+%p
+  %b Regular dermatologist:
+  = @patient_risk_factor.regular_dermatologist
+%p
+  %b Immunosuppressed:
+  = @patient_risk_factor.immunosuppressed
+
+= link_to 'Edit', edit_patient_risk_factor_path(@patient_risk_factor)
+\|
+= link_to 'Back', patient_risk_factors_path

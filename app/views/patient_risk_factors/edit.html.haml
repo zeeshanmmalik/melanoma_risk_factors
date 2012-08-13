@@ -1,0 +1,9 @@
+#title
+  %h1 Melanoma Risk Factors 
+#wrapper.wat-cf
+  - if flash[:alert]
+    .flash.alert
+      = flash.alert
+
+  = render 'form'
+

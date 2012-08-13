@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mrn: MyString
+  gender: MyString
+  year_of_birth: 
+  eye_color: 
+  hair_color: 
+  skin_color: 
+  freckle_count: 
+  long_sun_exposure_effect: 
+  color_sun_exposure_effect: 
+  tan_sun_exposure_effect: 
+  sensitivity_sun_exposure_effect: 
+  first_degree_relative: 
+  melanoma_diagnosis_history: false
+  tropical_residence: false
+  tropical_residence_period: 
+  tropical_residence_age_range: 
+  sun_burn_episodes: 
+  tanning_saloon_frequency: 
+  regular_dermatologist: false
+  immunosuppressed: false
+
+two:
+  mrn: MyString
+  gender: MyString
+  year_of_birth: 
+  eye_color: 
+  hair_color: 
+  skin_color: 
+  freckle_count: 
+  long_sun_exposure_effect: 
+  color_sun_exposure_effect: 
+  tan_sun_exposure_effect: 
+  sensitivity_sun_exposure_effect: 
+  first_degree_relative: 
+  melanoma_diagnosis_history: false
+  tropical_residence: false
+  tropical_residence_period: 
+  tropical_residence_age_range: 
+  sun_burn_episodes: 
+  tanning_saloon_frequency: 
+  regular_dermatologist: false
+  immunosuppressed: false

@@ -1,0 +1,57 @@
+%h1 Listing patient_risk_factors
+
+%table
+  %tr
+    %th Mrn
+    %th Gender
+    %th Year of birth
+    %th Eye color
+    %th Hair color
+    %th Skin color
+    %th Freckle count
+    %th Long sun exposure effect
+    %th Color sun exposure effect
+    %th Tan sun exposure effect
+    %th Sensitivity sun exposure effect
+    %th First degree relative
+    %th Melanoma diagnosis history
+    %th Tropical residence
+    %th Tropical residence period
+    %th Tropical residence age range
+    %th Sun burn episodes
+    %th Tanning saloon frequency
+    %th Regular dermatologist
+    %th Immunosuppressed
+    %th
+    %th
+    %th
+
+  - @patient_risk_factors.each do |patient_risk_factor|
+    %tr
+      %td= patient_risk_factor.mrn
+      %td= patient_risk_factor.gender
+      %td= patient_risk_factor.year_of_birth
+      %td= patient_risk_factor.eye_color
+      %td= patient_risk_factor.hair_color
+      %td= patient_risk_factor.skin_color
+      %td= patient_risk_factor.freckle_count
+      %td= patient_risk_factor.long_sun_exposure_effect
+      %td= patient_risk_factor.color_sun_exposure_effect
+      %td= patient_risk_factor.tan_sun_exposure_effect
+      %td= patient_risk_factor.sensitivity_sun_exposure_effect
+      %td= patient_risk_factor.first_degree_relative
+      %td= patient_risk_factor.melanoma_diagnosis_history
+      %td= patient_risk_factor.tropical_residence
+      %td= patient_risk_factor.tropical_residence_period
+      %td= patient_risk_factor.tropical_residence_age_range
+      %td= patient_risk_factor.sun_burn_episodes
+      %td= patient_risk_factor.tanning_saloon_frequency
+      %td= patient_risk_factor.regular_dermatologist
+      %td= patient_risk_factor.immunosuppressed
+      %td= link_to 'Show', patient_risk_factor
+      %td= link_to 'Edit', edit_patient_risk_factor_path(patient_risk_factor)
+      %td= link_to 'Destroy', patient_risk_factor, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Patient risk factor', new_patient_risk_factor_path
