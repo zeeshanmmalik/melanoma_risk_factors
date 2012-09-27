@@ -15,7 +15,7 @@
       %fieldset
         %legend Profile
         .field
-          %p We begin the survey by looking at factors that affect your health such as sex, age, and ethnic background, family and personal history. All the information collected in this voluntary survey will be kept confidential.
+          %p We begin the survey by looking at factors that affect your health such as sex, age, and ethnic background, family and personal history (Step 1 and 2). All the information collected in this voluntary survey will be kept confidential.
           .field-item
             = label_tag "Gender"
             - ['Male','Female'].each do |option|
@@ -88,7 +88,7 @@
       %fieldset
         %legend Genetic Disposition
         .field
-          %p The following questions will help us classify your skin type by response to sun exposure in terms of degree of burning and tanning
+          %p Questions in step 4 and 5 will help us classify your skin type by response to sun exposure in terms of degree of burning and tanning.
           %p Your eye color?
           - [ ['0','Light blue, gray, green'], ['1','Blue, gray, green'], ['2','Blue'], ['3','Dark Brown'], ['4','Brownish black'] ].each do |option|
             .field-item
