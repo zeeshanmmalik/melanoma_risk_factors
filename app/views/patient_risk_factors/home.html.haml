@@ -14,10 +14,10 @@
         %fieldset
           %legend Medical Record Number
           .field
-            .field-item
+            .field-item{:style=>'padding:15px 0 15px 5px;'}
               = f.label :mrn, 'Enter MRN', :class => 'text'
               = f.password_field :mrn
-            .field-item
+            .field-item{:style=>'padding:15px 0 15px 5px;'}
               = f.label :re_mrn, 'Re-enter MRN', :class => 'text'
               = f.password_field :re_mrn
           .actions

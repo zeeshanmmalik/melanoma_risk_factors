@@ -41,7 +41,8 @@
 	position:relative;
 	color: #fff;
 	width: 150px;
-	font-size: 11px;
+	font-size: 12px;
+	font-weight: bold;
 	border: 2px solid #ddd;
 	box-shadow: 0 0 6px #000;
 	-moz-box-shadow: 0 0 6px #000;

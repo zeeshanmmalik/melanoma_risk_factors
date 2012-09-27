@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
+	$("input").ezMark();
 	$(".edit_patient_risk_factor").validationEngine
 		promptPosition: "topLeft"
 	$(".edit_patient_risk_factor").formToWizard

@@ -18,9 +18,7 @@
           %p We begin the survey by looking at factors that affect your health such as sex, age, and ethnic background, family and personal history (Step 1 and 2). All the information collected in this voluntary survey will be kept confidential.
           .field-item
             = label_tag "Gender"
-            - ['Male','Female'].each do |option|
-              = f.radio_button :gender, option, :class => 'validate[required]'
-              = f.label :gender, option, :value => option, :class => 'radio'                              
+            = f.select :gender, ['Male','Female'], { :prompt => "Select gender" }, :class => 'validate[required]'			  
           .field-item
             = f.label :year_of_birth
             = f.select :year_of_birth, (1930..Time.now.year).to_a, { :prompt => "Select year" }, :class => 'validate[required]'

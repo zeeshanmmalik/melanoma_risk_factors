@@ -11,5 +11,6 @@
  *= require_self
  *= require formToWizard
  *= require validationEngine.jquery
+ *= require ezmark
  *= require_tree .
  */

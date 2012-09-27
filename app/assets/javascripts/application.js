@@ -15,4 +15,5 @@
 //= require jquery.formToWizard
 //= require jquery.validationEngine-en
 //= require jquery.validationEngine
+//= require jquery.ezmark
 //= require_tree .
