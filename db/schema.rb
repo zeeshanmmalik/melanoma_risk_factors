@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20120926170645) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "ethnicities_patient_risk_factors", :force => true do |t|
+  create_table "ethnicities_patient_risk_factors", :id => false, :force => true do |t|
     t.integer "patient_risk_factor_id"
     t.integer "ethnicity_id"
   end

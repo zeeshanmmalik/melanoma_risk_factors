@@ -6,7 +6,7 @@ $ ->
 	$(".edit_patient_risk_factor").validationEngine
 		promptPosition: "topLeft"
 	$(".edit_patient_risk_factor").formToWizard
-		showStepNo: false
+		showStepNo: true
 		showProgress: true
 		validateBeforeNext: ->
 			return $(".edit_patient_risk_factor").validationEngine("validate")
