@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.formToWizard
+//= require jquery.validationEngine-en
+//= require jquery.validationEngine
 //= require_tree .

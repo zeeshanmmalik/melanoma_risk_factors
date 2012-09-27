@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120813210812) do
+ActiveRecord::Schema.define(:version => 20120926170645) do
 
   create_table "ethnicities", :force => true do |t|
     t.string   "title"
@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(:version => 20120813210812) do
   end
 
   create_table "patient_risk_factors", :force => true do |t|
-    t.string   "mrn"
     t.string   "gender"
     t.integer  "year_of_birth"
     t.integer  "eye_color"
@@ -40,15 +39,21 @@ ActiveRecord::Schema.define(:version => 20120813210812) do
     t.boolean  "melanoma_diagnosis_history"
     t.boolean  "tropical_residence"
     t.integer  "tropical_residence_period"
-    t.integer  "tropical_residence_age_range"
     t.integer  "sun_burn_episodes"
     t.integer  "tanning_saloon_frequency"
     t.boolean  "regular_dermatologist"
     t.boolean  "immunosuppressed"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+    t.integer  "patient_id"
+    t.integer  "number_of_melanocytic_navi"
+    t.integer  "last_tan"
   end
 
-  add_index "patient_risk_factors", ["mrn"], :name => "index_patient_risk_factors_on_mrn", :unique => true
+  create_table "patients", :force => true do |t|
+    t.string   "mrn"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

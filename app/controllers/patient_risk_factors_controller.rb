@@ -21,12 +21,15 @@ class PatientRiskFactorsController < ApplicationController
     elsif mrn != params[:patient_risk_factor][:re_mrn]
       flash.now.alert = "MRN's do not match. Please re-enter MRN's."
       render :home
-    elsif PatientRiskFactor.exists?(:mrn => mrn)
-      @patient_risk_factor = PatientRiskFactor.where(:mrn => mrn).first
+    elsif Patient.exists?(:mrn => mrn)
+	  @patient = Patient.where(:mrn => mrn).first
+      @patient_risk_factor = @patient.patient_risk_factor
       render :edit 
    else
-      @patient_risk_factor = PatientRiskFactor.new(:mrn => mrn)
-      @patient_risk_factor.save(:validate => false)
+	  @patient = Patient.create(:mrn => mrn)
+      @patient_risk_factor = PatientRiskFactor.new	  
+	  @patient_risk_factor.patient = @patient
+	  @patient_risk_factor.save(:validate => false)
       render :edit
     end
   end
@@ -79,6 +82,7 @@ class PatientRiskFactorsController < ApplicationController
   def update
     params[:patient_risk_factor][:ethnicity_ids] ||= []
     @patient_risk_factor = PatientRiskFactor.find(params[:id])
+	@patient = @patient_risk_factor.patient
 
     respond_to do |format|
       if @patient_risk_factor.update_attributes(params[:patient_risk_factor])
