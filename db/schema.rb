@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20120926170645) do
     t.integer  "last_tan"
   end
 
-  create_table "patients", :force => true do |t|
+  create_table "patients", :primary_key => "patient_id", :force => true do |t|
     t.string   "mrn"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
